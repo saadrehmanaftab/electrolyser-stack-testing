@@ -4,9 +4,10 @@ A Python toolkit for the test side of electrolyser development. It simulates a 1
 electrolyser stack on a virtual test stand, runs an accelerated stress test (AST), and analyses
 the test data to find which cell degraded and why.
 
-> **All data is synthetic.** The stack, its faults and the test stand are simulated, so every
-> analysis result can be checked against a known ground truth. Parameters are illustrative
-> textbook values, not data from any real product.
+> **Self initiated study, assumed data.** It is not coursework and not an employer project.
+> The stack, its faults and the test stand are simulated, so every analysis result can be
+> checked against a known ground truth. All parameters are assumed, illustrative textbook
+> values, not data from any real product (see "Assumed data" below).
 
 ![Per cell voltage during the AST](results/fig1_cell_voltage_ast.png)
 
@@ -62,6 +63,15 @@ at 0, 250 and 500 h. Safety limits: 1.2 to 2.4 V per cell, 70 °C.
 ![Loss breakdown](results/fig2_loss_breakdown.png)
 ![Leak test](results/fig4_leak_test.png)
 ![Polarization curves](results/fig3_polarization_bol_eol.png)
+
+## Assumed data
+
+* Cell model: reversible voltage 1.23 V, 60 °C, charge transfer coefficient 0.5, exchange current
+  density 1e-3 A/cm², membrane ASR 0.10 and contact ASR 0.05 ohm cm², mass transport coefficient
+  0.03 V, limiting current 3.5 A/cm², active area 100 cm².
+* Degradation rates, fault multipliers, leak test volume, noise levels, limits and the AST protocol
+  as set in the code (`degradation.py`, `leak_test.py`, `test_stand.py`, `run_study.py`).
+* Process view: one electron per CO2 released, 90 % Faradaic efficiency.
 
 ## How the root cause is decided
 
